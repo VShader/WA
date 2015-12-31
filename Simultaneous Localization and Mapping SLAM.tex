@@ -1,7 +1,8 @@
-\documentclass{styles/llncs}
+\documentclass[oribibl]{styles/llncs}
 
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+
 
 \title{SLAM Simultaneous Localization and Mapping}
 \author{}
@@ -10,8 +11,29 @@
 \begin{document}
 \maketitle
 
-SLAM steht für "`Simultaneous Localization and Mapping"' was man als "`Simultane Lokalisierung und Kartografierung"' übersetzen kann.
-SLAM dient zur Orientierung von mobilen Robotern in einer fremden Umgebung.
+%\citet{Durrant-Whyte, H. and Bailey, Tim}
+SLAM steht für "`Simultaneous Localization and Mapping"' was man als "`Simultane Lokalisierung und Kartografierung"' übersetzen kann. \\
+SLAM gilt als der "`Heilige Gral"' der Robotik \cite{1638022}, da die Lösung diese Problems einem Roboter erlaubt sich in einer fremden Umgebung zu orientieren. \\
+Dazu erstellt der Roboter, mit Hilfe sogenannter Landmarken, eine Karte von seiner Umgebung und bestimmt seine Position in dieser Karte.
+Da dies geschieht simultan, daher auch die Bezeichnung SLAM.
 
 
+\section{Legende}
+\begin{itemize}
+	\item $\mathbf{x}_k$: ist ein Status-Vektor der die Position und Ausrichtung zum Zeitpunkt k speichert.
+	\item $\mathbf{u}_k$: ist ein Kontroll-Vektor der beschreibt, wie der Roboter vom Status $\mathbf{x}_{k-1}$ zum Status $\mathbf{x}_k$
+	\item $\mathbf{m}_i$: ist ein Vektor der die Position der i-ten Landmarke beschreibt.
+	\item $\mathbf{z}_{ik}$: ist ein Vektor der in Richtung der i-ten Landmarke zum Zeitpunkt k zeigt.	\\ \\
+Zusammenfassend ergeben diese Vektoren die Matrizen:
+	\item $\mathbf{X}_{0:k} = \{\mathbf{x}_0, \mathbf{x}_1, ..., \mathbf{x}_k\}$: ist die Historie aller Position des Roboters.
+	\item $\mathbf{U}_{0:k} = \{\mathbf{u}_0, \mathbf{u}_1, ..., \mathbf{u}_k\}$: ist die Historie der Kontroll-Vektoren.
+	\item $\mathbf{m} = \{\mathbf{m}_0, \mathbf{m}_1, ..., \mathbf{m}_n\}$: alle entdeckten Landmarken.
+	\item $\mathbf{Z}_{0:k} = \{\mathbf{z}_0, \mathbf{z}_1, ..., \mathbf{z}_k\}$: ist die Historie aller z Vektoren.
+\end{itemize}
+\cite{1638022}
+
+
+
+\bibliographystyle{styles/splncs03}
+\bibliography{citations}
 \end{document}
